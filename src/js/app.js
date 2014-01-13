@@ -23,6 +23,7 @@ define(function (require) {
           _this.$('.progress-bar').width('100%');
           setTimeout(function(){
             _this.$('#main-container').html(tpl());
+            _this.ajaxCall();
           },1000);
         },
 
@@ -47,6 +48,21 @@ define(function (require) {
 
     // jQuery
     App.prototype.$ = require('jquery');
+
+    App.prototype.ajaxCall = function(){
+      require('jquery');
+      require('jquery.cors/jquery.cors');
+      $.ajax({
+        url: 'https://nimoy-wisertogether.rhcloud.com/api/v1/conditions/high-blood-pressure/?demographics:gender=gender-female&demographics:gender=gender-female&demographics:pregnant=yesno-yes',
+        complete: function(XHR){
+          console.log(XHR)
+          console.log('nice')
+        },
+        error: function(){
+          console.log('error!!')
+        }
+      })
+    }
 
     // return App
     return App;
