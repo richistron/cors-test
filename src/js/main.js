@@ -4,64 +4,33 @@ require.config({
     disableI18n: true,
     templateExtension: 'html'
   },
-  paths: {
-    jquery: '../components/jquery/jquery',
-    bootstrapAffix: '../components/bootstrap/js/affix',
-    bootstrapAlert: '../components/bootstrap/js/alert',
-    bootstrapButton: '../components/bootstrap/js/button',
-    bootstrapCarousel: '../components/bootstrap/js/carousel',
-    bootstrapCollapse: '../components/bootstrap/js/collapse',
-    bootstrapDropdown: '../components/bootstrap/js/dropdown',
-    bootstrapModal: '../components/bootstrap/js/modal',
-    bootstrapPopover: '../components/bootstrap/js/popover',
-    bootstrapScrollspy: '../components/bootstrap/js/scrollspy',
-    bootstrapTab: '../components/bootstrap/js/tab',
-    bootstrapTooltip: '../components/bootstrap/js/tooltip',
-    bootstrapTransition: '../components/bootstrap/js/transition',
-    backbone: '../components/backbone-amd/backbone',
-    underscore: '../components/underscore-amd/underscore',
-    hbs: '../components/require-handlebars-plugin/hbs',
-    json2: '../components/require-handlebars-plugin/hbs/json2',
-    i18nprecompile: '../components/require-handlebars-plugin/hbs/i18nprecompile',
-    handlebars: '../components/require-handlebars-plugin/Handlebars'
+  paths:{
+    'bootstrap': '../components/bootstrap/dist/js/bootstrap',
+    'chiropractor': '../components/chiropractor/chiropractor',
+    'commonjs': '../components/wiser-commonjs',
+    'console': '../components/console-shim/console-shim',
+    'console-shim': '../components/console-shim/console-shim',
+    'easyxdm': '../jquery.cors/easyxdm/easyxdm',
+    'handlebars': '../components/require-handlebars-plugin/Handlebars',
+    'hbs': '../components/require-handlebars-plugin/hbs',
+    'i18nprecompile': '../components/require-handlebars-plugin/hbs/i18nprecompile',
+    'jquery': '../components/jquery/jquery',
+    'jquery.cookie': '../components/jquery.cookie/jquery.cookie',
+    'jquery.cors': '../jquery.cors',
+    'json2': '../components/json2/json2',
+    'json3': '../components/json3/lib/json3',
+    'jstorage': '../components/jStorage/jstorage',
+    'underscore': '../components/underscore-amd/underscore',
+    'underscore.string': '../components/underscore.string/lib/underscore.string'
   },
   shim: {
-    bootstrapAffix: {
-      deps: ['jquery']
+    'json2': { exports: 'JSON' },
+    'jquery.cors/easyxdm/easyxdm': { exports: 'easyXDM' },
+    'easyxdm': {
+      deps: ['json2'],
+      exports: 'easyXDM'
     },
-    bootstrapAlert: {
-      deps: ['jquery', 'bootstrapTransition']
-    },
-    bootstrapButton: {
-      deps: ['jquery']
-    },
-    bootstrapCarousel: {
-      deps: ['jquery', 'bootstrapTransition']
-    },
-    bootstrapCollapse: {
-      deps: ['jquery', 'bootstrapTransition']
-    },
-    bootstrapDropdown: {
-      deps: ['jquery']
-    },
-    bootstrapModal: {
-      deps: ['jquery', 'bootstrapTransition']
-    },
-    bootstrapPopover: {
-      deps: ['jquery', 'bootstrapTooltip']
-    },
-    bootstrapScrollspy: {
-      deps: ['jquery']
-    },
-    bootstrapTab: {
-      deps: ['jquery', 'bootstrapTransition']
-    },
-    bootstrapTooltip: {
-      deps: ['jquery', 'bootstrapTransition']
-    },
-    bootstrapTransition: {
-      deps: ['jquery']
-    }
+    'console-shim': { exports: 'console' }
   }
 });
 

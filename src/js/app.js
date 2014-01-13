@@ -40,7 +40,7 @@ define(function (require) {
     App.prototype.VERSION = '0.0.0';
 
     // Backbone
-    App.prototype.Backbone = require('backbone');
+    App.prototype.Backbone = require('chiropractor');
 
     // underscore
     App.prototype._ = require('underscore');

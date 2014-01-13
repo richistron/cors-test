@@ -1,0 +1,51 @@
+#! /bin/bash
+
+clear
+
+param=$1
+
+if [ -z $1 ]
+then
+  param="all"
+fi
+
+if [ $param == "all" ] || [ $param == "bower" ]
+then
+  echo "reinstalling bower deps..."
+  echo "removing stuff..."
+  rm -rf src/components/
+  echo "installing stuff.."
+  bower install
+fi
+
+
+if [ $param == "all" ] || [ $param == "npm" ]
+then
+  echo "reinstalling npm deps"
+  echo "removing stuff"
+  rm -rf node_modules/
+  echo "installing stuff"
+  npm install
+fi
+
+if [ $param == "all" ] || [ $param == "archery" ]
+then
+  if [ -d archery ]
+  then
+    echo "submodule update"
+    git submodule init
+    git submodule update
+    git submodule sync
+    echo "installing stuff"
+    cd archery
+    echo "updating repo"
+    git pull origin master -f
+    echo "reinstalling npm deps"
+    echo "removing stuff"
+    rm -rf src/components/
+    echo "installing stuff"
+    bower install
+    cd ..
+  fi
+fi
+

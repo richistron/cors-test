@@ -1,0 +1,29 @@
+#! /bin/bash
+
+if [ -z $1 ]
+  then
+  echo 'no params sended';
+  echo 'try with:';
+  echo 'connect';
+  echo 'disconnect';
+fi
+
+if [ $1 == 'connect' ]
+  then
+    sudo ipfw add 80 fwd 127.0.0.1,50007 tcp from any to me 80 in
+fi
+
+if [ $1 == 'disconnect' ]
+  then
+    sudo ipfw delete 00080
+fi
+
+if [ $1 == 'status' ]
+  then
+    sudo ipfw show 00080
+fi
+
+if [ $1 == 'list' ]
+  then
+    sudo ipfw list
+fi
