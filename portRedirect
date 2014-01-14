@@ -10,7 +10,7 @@ fi
 
 if [ $1 == 'connect' ]
   then
-    sudo ipfw add 80 fwd 127.0.0.1,50007 tcp from any to me 80 in
+    sudo ipfw add 80 fwd 127.0.0.1,8888 tcp from any to me 80 in
 fi
 
 if [ $1 == 'disconnect' ]
